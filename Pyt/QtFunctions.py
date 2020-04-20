@@ -1,9 +1,13 @@
+# import QtFunctions
+import QtWindowOne
+# QtFunctions.spawnQtWindow(QtWindowOne.QtWindowOne)
+
+
 import unreal
 import sys
 sys.path.append('C:/Python27/Lib/site-packages')
 from PySide import QtGui
 
-import QtWindowOne
 # This function will receive the tick from Unreal
 def __QtAppTick__(delta_seconds):
 	for window in opened_windows:
@@ -19,29 +23,20 @@ def __QtWindowClosed__(window=None):
 		opened_windows.remove(window)
 
 # This part is for the initial setup. Need to run once to spawn the application.
-# unreal_app = QtGui.QApplication.instance()
-# if not unreal_app:
-# 	unreal_app = QtGui.QApplication(sys.argv)
-# 	tick_handle = unreal.register_slate_post_tick_callback(__QtAppTick__)
-# 	unreal_app.aboutToQuit.connect(__QtAppQuit__)
-# 	existing_windows = {}
-# 	opened_windows = []
 
-
-
+unreal_app = QtGui.QApplication.instance()
+if not unreal_app:
+	unreal_app = QtGui.QApplication(sys.argv)
+	tick_handle = unreal.register_slate_post_tick_callback(__QtAppTick__)
+	unreal_app.aboutToQuit.connect(__QtAppQuit__)
+	existing_windows = {}
+	opened_windows = []
 
 
 # desired_window_class: class QtGui.QWidget : The window class you want to spawn
 # return: The new or existing window
 def spawnQtWindow(desired_window_class=None):
-	unreal_app = QtGui.QApplication.instance()
-	if not unreal_app:
-		unreal_app = QtGui.QApplication(sys.argv)
-		tick_handle = unreal.register_slate_post_tick_callback(__QtAppTick__)
-		unreal_app.aboutToQuit.connect(__QtAppQuit__)
-		existing_windows = {}
-		opened_windows = []
-
+	global existing_windows
 	window = existing_windows.get(desired_window_class, None)
 	if not window:
 		window = desired_window_class()
@@ -53,10 +48,5 @@ def spawnQtWindow(desired_window_class=None):
 	window.activateWindow()
 	return window
 
-unreal_app = QtGui.QApplication(sys.argv)
-tick_handle = unreal.register_slate_post_tick_callback(__QtAppTick__)
-unreal_app.aboutToQuit.connect(__QtAppQuit__)
-existing_windows = {}
-opened_windows = []
-# spawnQtWindow(QtWindowOne.QtWindowOne)
-print "Hello World"
+
+spawnQtWindow(QtWindowOne.QtWindowOne)

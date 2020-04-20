@@ -4,7 +4,7 @@ sys.path.append('C:/Python27/Lib/site-packages')
 from PySide import QtGui, QtUiTools
 
 WINDOW_NAME = 'Qt Window One'
-UI_FILE_FULLNAME = 'D:/Python_Project/Pyt/QtWindowOne.ui'
+UI_FILE_FULLNAME = 'D:/GitRepos/Pyt/QtWindowOne.ui'
 
 class QtWindowOne(QtGui.QWidget):
 	def __init__(self, parent=None):

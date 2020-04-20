@@ -1,7 +1,7 @@
 import sys
 
 import unreal
-
+import QtWindowOne
 sys.path.append('C:/Python27/Lib/site-packages')
 import PySide
 
@@ -12,27 +12,26 @@ skeletal_mesh_fbx = 'E:/Asset/SkeletalMesh/Game/Character/ChenMo_Armour/Meshes/S
 
 UI_Path = 'D:/Python_Project/Pyt/QtWindowOne.ui'
 
+def __QtAppTick__(delta_seconds):
+	for window in opened_windows:
+		window.eventTick(delta_seconds)
 
+# This function will be called when the application is closing.
+def __QtAppQuit__():
+	unreal.unregister_slate_post_tick_callback(tick_handle)
+
+# This function is called by the windows when they are closing. (Only if the connection is properly made.)
 def __QtWindowClosed__(window=None):
-    if window in opened_windows:
-        opened_windows.remove(window)
+	if window in opened_windows:
+		opened_windows.remove(window)
 
-
-class MainWindow(QtGui.QWidget):
-    def __init__(self, parent=None):
-        super(MainWindow, self).__init__(parent)
-        self.aboutToClose = None  # This is used to stop the tick when the window is closed
-        self.widget = QtUiTools.QUiLoader().load(UI_Path)
-        self.widget.setParent(self)
-
-        self.setGeometry(100, 100, self.widget.width(), self.widget.height())
-        self.initialiseWidget()
-
-    def initialiseWidget(self):
-        self.time_while_this_window_is_open = 0.0
-        self.random_actor = None
-        self.random_actor_is_going_up = True
-        self.widget.button_MoveRandom.clicked.connect(self.moveRandomActorInScene)
+unreal_app = QtGui.QApplication.instance()
+if not unreal_app:
+	unreal_app = QtGui.QApplication(sys.argv)
+	tick_handle = unreal.register_slate_post_tick_callback(__QtAppTick__)
+	unreal_app.aboutToQuit.connect(__QtAppQuit__)
+	existing_windows = {}
+	opened_windows = []
 
 
 def buildImportTask(filename='', destination_path='', options=None):
@@ -116,25 +115,16 @@ def importMyAssets():
 # print 'TestRunning'
 #
 # importMyAssets()
-
 def spawnQtWindow(desired_window_class=None):
-    window = existing_windows.get(desired_window_class, None)
-    if not window:
-        window = desired_window_class()
-        existing_windows[desired_window_class] = window
-        window.aboutToClose = __QtWindowClosed__
-    if window not in opened_windows:
-        opened_windows.append(window)
-    window.show()
-    window.activateWindow()
-    return window
+	window = existing_windows.get(desired_window_class, None)
+	if not window:
+		window = desired_window_class()
+		existing_windows[desired_window_class] = window
+		window.aboutToClose = __QtWindowClosed__
+	if window not in opened_windows:
+		opened_windows.append(window)
+	window.show()
+	window.activateWindow()
+	return window
 
-
-unreal_app = QtGui.QApplication.instance()
-if not unreal_app:
-    unreal_app = QtGui.QApplication(sys.argv)
-    # tick_handle = unreal.register_slate_post_tick_callback(__QtAppTick__)
-    # unreal_app.aboutToQuit.connect(__QtAppQuit__)
-    existing_windows = {}
-    opened_windows = []
-    spawnQtWindow(MainWindow.MainWindow)
+spawnQtWindow(QtWindowOne.QtWindowOne)

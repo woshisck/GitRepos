@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59e8fae0-afb2-4a6c-85fd-347017d8d7d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyPyt.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyPyt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QtFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/QtFunctions.py" afterDir="false" />

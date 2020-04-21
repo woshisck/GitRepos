@@ -1,8 +1,3 @@
-# import QtFunctions
-import QtWindowOne
-# QtFunctions.spawnQtWindow(QtWindowOne.QtWindowOne)
-
-
 import unreal
 import sys
 sys.path.append('C:/Python27/Lib/site-packages')
@@ -23,7 +18,6 @@ def __QtWindowClosed__(window=None):
 		opened_windows.remove(window)
 
 # This part is for the initial setup. Need to run once to spawn the application.
-
 unreal_app = QtGui.QApplication.instance()
 if not unreal_app:
 	unreal_app = QtGui.QApplication(sys.argv)
@@ -33,10 +27,12 @@ if not unreal_app:
 	opened_windows = []
 
 
+
+
+
 # desired_window_class: class QtGui.QWidget : The window class you want to spawn
 # return: The new or existing window
 def spawnQtWindow(desired_window_class=None):
-	global existing_windows
 	window = existing_windows.get(desired_window_class, None)
 	if not window:
 		window = desired_window_class()
@@ -48,5 +44,3 @@ def spawnQtWindow(desired_window_class=None):
 	window.activateWindow()
 	return window
 
-
-spawnQtWindow(QtWindowOne.QtWindowOne)

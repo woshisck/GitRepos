@@ -1,8 +1,8 @@
 import sys
-
+import os
 import unreal
 import QtWindowOne
-
+import Core
 sys.path.append('C:/Python27/Lib/site-packages')
 import PySide
 
@@ -11,7 +11,8 @@ from PySide import QtGui, QtUiTools, QtCore
 static_mesh_fbx = 'E:/Asset/StaticMesh/0101.FBX'
 skeletal_mesh_fbx = 'E:/Asset/SkeletalMesh/Game/Character/ChenMo_Armour/Meshes/SK_CH_ChenMo_Armour.FBX'
 
-UI_Path = '/QtWindowOne.ui'
+rootpath = os.path.dirname(os.path.abspath(__file__))
+UI_Path = rootpath+'\QtWindowOne.ui'
 
 
 def __QtAppTick__(delta_seconds):
@@ -166,14 +167,18 @@ class VolumeSlider(QtGui.QDialog):
 
 
 if __name__ == "__main__":
-    # APP = None
-    # if not QtGui.QApplication.instance():
-    #     APP = QtGui.QApplication(sys.argv)
-    #
-    # main_window = QtWindow()
-    # main_window.show()
-    print type(__name__)
-    print __name__
+    APP = None
+    if not QtGui.QApplication.instance():
+        APP = QtGui.QApplication(sys.argv)
+
+    main_window = QtWindow()
+    main_window.show()
+
+    # print (os.path.dirname(os.path.abspath(__file__)))
+    # print(__file__)
+
+    # print type(__name__)
+    # print __name__
 ############################################################################################################
 
     # unreal_app = QtGui.QApplication.instance()
@@ -194,3 +199,8 @@ if __name__ == "__main__":
     #     window.show()
     #     window.activateWindow()
     #     return window
+
+
+
+
+

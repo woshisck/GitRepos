@@ -1,3 +1,14 @@
+import sys
+import os
+import unreal
+
+import Core
+sys.path.append('C:/Python27/Lib/site-packages')
+import PySide
+
+
+
+
 import unreal
 
 
@@ -59,3 +70,19 @@ class Core():
         options.set_editor_property()
 
         return options
+
+
+
+def print_table(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+
+
+def lazy_sum(*wtf, **wtfisthat):
+    def sum():
+        ax = 0
+        for n in wtf:
+            ax = ax + n
+        return ax
+
+    return sum

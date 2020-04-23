@@ -18,24 +18,18 @@
     <normaloff>../../Download/tubiao.png</normaloff>../../Download/tubiao.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(40, 40, 40);</string>
+   <string notr="true">QWidget#Form {
+	background-color: rgb(40, 40, 40);
+	color:white;
+}</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0">
    <item>
     <widget class="QWidget" name="UE_input_FBX" native="true">
      <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,1,0" rowminimumheight="0,1,0">
       <item row="0" column="0">
        <layout class="QGridLayout" name="gridLayout">
-        <property name="leftMargin">
-         <number>5</number>
-        </property>
-        <property name="topMargin">
-         <number>5</number>
-        </property>
-        <property name="rightMargin">
-         <number>5</number>
-        </property>
-        <property name="bottomMargin">
+        <property name="margin">
          <number>5</number>
         </property>
         <property name="spacing">
@@ -103,15 +97,15 @@ color: rgb(255, 255, 255);</string>
             <underline>false</underline>
            </font>
           </property>
-          <property name="toolTipDuration">
-           <number>-1</number>
-          </property>
           <property name="styleSheet">
            <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(50, 50, 50);</string>
           </property>
           <property name="text">
            <string>SetUE4</string>
+          </property>
+          <property name="toolTipDuration" stdset="0">
+           <number>-1</number>
           </property>
          </widget>
         </item>

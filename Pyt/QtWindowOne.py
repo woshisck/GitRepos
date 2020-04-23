@@ -1,59 +1,68 @@
-import unreal
-import sys
-sys.path.append('C:/Python27/Lib/site-packages')
-from PySide import QtGui, QtUiTools
+# -*- coding: utf-8 -*-
 
-WINDOW_NAME = 'Qt Window One'
-UI_FILE_FULLNAME = __file__.replace('.py', '.ui')
+# Form implementation generated from reading ui file 'QtWindowOne.ui'
+#
+# Created: Thu Apr 23 19:35:17 2020
+#      by: pyside-uic 0.2.15 running on PySide 1.2.4
+#
+# WARNING! All changes made in this file will be lost!
 
-class QtWindowOne(QtGui.QWidget):
-	def __init__(self, parent=None):
-		super(QtWindowOne, self).__init__(parent)
-		self.aboutToClose = None # This is used to stop the tick when the window is closed
-		self.widget = QtUiTools.QUiLoader().load(UI_FILE_FULLNAME)
-		self.widget.setParent(self)
-		self.setWindowTitle(WINDOW_NAME)
-		self.setGeometry(100, 100, self.widget.width(), self.widget.height())
-		self.initialiseWidget()
+from PySide import QtCore, QtGui
 
-	def closeEvent(self, event):
-		if self.aboutToClose:
-			self.aboutToClose(self)
-		event.accept()
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(325, 120)
+        Form.setStyleSheet("QWidget#Form {\n"
+"    background-color:#262626;\n"
+"    color:white;\n"
+"}")
+        self.verticalLayout_2 = QtGui.QVBoxLayout(Form)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.lbl_Title = QtGui.QLabel(Form)
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.lbl_Title.setFont(font)
+        self.lbl_Title.setStyleSheet("color:white;")
+        self.lbl_Title.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_Title.setObjectName("lbl_Title")
+        self.verticalLayout_2.addWidget(self.lbl_Title)
+        spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem)
+        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem1)
+        self.label = QtGui.QLabel(Form)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label.setFont(font)
+        self.label.setStyleSheet("color: white;")
+        self.label.setObjectName("label")
+        self.horizontalLayout.addWidget(self.label)
+        self.lbl_Seconds = QtGui.QLabel(Form)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.lbl_Seconds.setFont(font)
+        self.lbl_Seconds.setStyleSheet("color: white;")
+        self.lbl_Seconds.setObjectName("lbl_Seconds")
+        self.horizontalLayout.addWidget(self.lbl_Seconds)
+        spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem2)
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+        spacerItem3 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem3)
+        self.button_MoveRandom = QtGui.QPushButton(Form)
+        self.button_MoveRandom.setObjectName("button_MoveRandom")
+        self.verticalLayout_2.addWidget(self.button_MoveRandom)
 
-	def eventTick(self, delta_seconds):
-		self.myTick(delta_seconds)
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
 
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(QtGui.QApplication.translate("Form", "Form", None, QtGui.QApplication.UnicodeUTF8))
+        self.lbl_Title.setText(QtGui.QApplication.translate("Form", "Window One", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("Form", "Time While This Window Is Open: ", None, QtGui.QApplication.UnicodeUTF8))
+        self.lbl_Seconds.setText(QtGui.QApplication.translate("Form", "0 Seconds", None, QtGui.QApplication.UnicodeUTF8))
+        self.button_MoveRandom.setText(QtGui.QApplication.translate("Form", "Move Random Actor In Scene", None, QtGui.QApplication.UnicodeUTF8))
 
-	##########################################
-
-
-	def initialiseWidget(self):
-		self.time_while_this_window_is_open = 0.0
-		self.random_actor = None
-		self.random_actor_is_going_up = True
-		self.widget.button_MoveRandom.clicked.connect(self.moveRandomActorInScene)
-
-	def moveRandomActorInScene(self):
-		import random
-		import WorldFunctions
-		all_actors = WorldFunctions.getAllActors(use_selection = False, actor_class = unreal.StaticMeshActor, actor_tag = None)
-		rand = random.randrange(0, len(all_actors))
-		self.random_actor = all_actors[rand]
-
-	def myTick(self, delta_seconds):
-		# Set Time
-		self.time_while_this_window_is_open += delta_seconds
-		self.widget.lbl_Seconds.setText("%.1f Seconds" % self.time_while_this_window_is_open)
-		# Affect Actor
-		if self.random_actor:
-			actor_location = self.random_actor.get_actor_location()
-			speed = 300.0 * delta_seconds
-			if self.random_actor_is_going_up:
-				if actor_location.z > 1000.0:
-					self.random_actor_is_going_up = False
-			else:
-				speed = -speed
-				if actor_location.z < 0.0:
-					self.random_actor_is_going_up = True
-			self.random_actor.add_actor_world_offset(unreal.Vector(0.0, 0.0, speed), False, False)

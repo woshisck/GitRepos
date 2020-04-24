@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59e8fae0-afb2-4a6c-85fd-347017d8d7d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/UE_input_FBX.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UnitTestFile.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyPyt.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyPyt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QtWindowOne.py" beforeDir="false" afterPath="$PROJECT_DIR$/QtWindowOne.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QtWindowOne.ui" beforeDir="false" afterPath="$PROJECT_DIR$/QtWindowOne.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UE_input_FBX.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UE_input_FBX.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UE_input_fbx_ui.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unreal.py" beforeDir="false" afterPath="$PROJECT_DIR$/unreal.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +51,27 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.MyPyt">
+    <configuration name="Core" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Pyt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Core.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="MyPyt" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Pyt" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,6 +117,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.MyPyt" />
+        <item itemvalue="Python.Core" />
         <item itemvalue="Python.QtFunctions" />
       </list>
     </recent_temporary>

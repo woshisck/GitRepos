@@ -18,10 +18,7 @@
     <normaloff>../../Download/tubiao.png</normaloff>../../Download/tubiao.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget#Form {
-	background-color: rgb(40, 40, 40);
-	color:white;
-}</string>
+   <string notr="true">background-color: rgb(40, 40, 40);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0">
    <item>

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UE_input_FBX.ui'
 #
-# Created: Thu Apr 23 17:37:53 2020
+# Created: Fri Apr 24 14:25:52 2020
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -16,10 +16,7 @@ class Ui_UE_input_Dialog(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../Download/tubiao.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         UE_input_Dialog.setWindowIcon(icon)
-        UE_input_Dialog.setStyleSheet("QWidget#Form {\n"
-"    background-color: rgb(40, 40, 40);\n"
-"    color:white;\n"
-"}")
+        UE_input_Dialog.setStyleSheet("background-color: rgb(40, 40, 40);")
         self.verticalLayout_2 = QtGui.QVBoxLayout(UE_input_Dialog)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.UE_input_FBX = QtGui.QWidget(UE_input_Dialog)

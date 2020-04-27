@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="59e8fae0-afb2-4a6c-85fd-347017d8d7d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UE_input_FBX.py" beforeDir="false" afterPath="$PROJECT_DIR$/UE_input_FBX.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UE_input_FBX.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UE_input_FBX.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTestFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unreal.py" beforeDir="false" afterPath="$PROJECT_DIR$/unreal.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +34,13 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="D:/Python_Project/FBXScript" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitRepos\Pyt" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

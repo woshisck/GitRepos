@@ -3,6 +3,12 @@ import unreal
 import time
 
 
+AssetTools = unreal.AssetToolsHelpers.get_asset_tools()
+
+AssetImportTask =unreal.AssetImportTask()
+AssetImportTask.set_editor_property('filename', "THE NAME OF THE FILE")
+AssetImportTask.set_editor_property('destination_path','/Game/Tex')
+
 def buildImportTask(filename='', destination_path='', options=None):
     task = unreal.AssetImportTask()
     task.set_editor_property('automated', True)
@@ -93,18 +99,39 @@ def create_level_sequence(asset_name, package_path='/Game/'):
 target_sequence = create_level_sequence('MasterSequence')
 CameraTrack = 'H:/XHQS/Cache/ANI_cache/EP001/SC001/SC001_P001/SC001_P001_0003/EP001_SC001_P001_0003_Camera_50_101_266.fbx'
 world = unreal.EditorLevelLibrary.get_editor_world()
-# # cine_camera = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.CineCameraActor, unreal.Vector())
-#
-#
-camera_import_options =unreal.MovieSceneUserImportFBXSettings()
+cine_camera = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.CineCameraActor, unreal.Vector())
+
+
+level_actors = unreal.EditorLevelLibrary.get_all_level_actors()
+camera_import_options = unreal.MovieSceneUserImportFBXSettings()
 camera_import_options.set_editor_property("reduce_keys", True)
 camera_import_options.set_editor_property("create_cameras", True)
 camera_import_options.set_editor_property("force_front_x_axis", False)
 camera_import_options.set_editor_property("match_by_name_only", False)
-#
-# # cine_camera = unreal.BlueprintFunctionLibrary.
-#
-# # cine_camera_comp = target_sequence.add_spawnable_from_class(unreal.CineCameraActor)
+
+cine_camera_comp = target_sequence.add_possessable(cine_camera)
 bindings = target_sequence.get_bindings()
-# # world = unreal.EditorLevelLibrary.get_editor_world()
-unreal.SequencerTools.import_fbx(world,target_sequence, bindings, camera_import_options, CameraTrack)
+
+
+target_sequence.add_spawnable_from_instance(cine_camera) #make Camera Spawnable
+
+
+
+
+world = unreal.EditorLevelLibrary.get_editor_world()
+unreal.SequencerTools.import_fbx(world, target_sequence, bindings, camera_import_options, CameraTrack)
+
+currentSequence =unreal.EditorAssetLibrary.load_asset('/Game/MasterSequence')
+
+sequence_asset = unreal.MovieSceneSequence.cast(currentSequence)
+
+# possessable = sequence_asset.add_possessable(None)
+
+binding = sequence_asset.get_bindings()
+
+
+ID = sequence_asset.find_binding_by_name('CineCameraActor14')
+
+ID_object = unreal.MovieSceneBindingExtensions.get_object_template(ID)
+# print ID.get_child_possessables()
+print ID_object

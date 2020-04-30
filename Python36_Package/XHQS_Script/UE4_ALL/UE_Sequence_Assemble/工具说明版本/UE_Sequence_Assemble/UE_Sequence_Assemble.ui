@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Seq_Assemble</class>
+ <widget class="QDialog" name="Seq_Assemble">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>838</width>
+    <height>687</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>UE_Sequence_Assemble</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../Download/tubiao.png</normaloff>../Download/tubiao.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(40, 40, 40);</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0">
+   <item>
+    <widget class="QWidget" name="UE_input_FBX" native="true">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QSplitter" name="splitter_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QSplitter" name="splitter">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <widget class="QListWidget" name="Ep_list">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="baseSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+selection-background-color: rgb(0, 170, 255);</string>
+              </property>
+              <property name="sortingEnabled">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QListWidget" name="Sc_list">
+              <property name="baseSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+selection-background-color: rgb(0, 170, 255);</string>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::ExtendedSelection</enum>
+              </property>
+             </widget>
+             <widget class="QListWidget" name="Pt_list">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+selection-background-color: rgb(0, 170, 255);</string>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::ExtendedSelection</enum>
+              </property>
+             </widget>
+             <widget class="QListWidget" name="Shot_list">
+              <property name="baseSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+selection-background-color: rgb(0, 170, 255);</string>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::ExtendedSelection</enum>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QListWidget" name="File_list">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 255);
+selection-background-color: rgb(0, 170, 255);</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::ExtendedSelection</enum>
+             </property>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QCheckBox" name="Camera">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(50, 50, 50);</string>
+              </property>
+              <property name="text">
+               <string>Camera</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="Ue_asset">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(50, 50, 50);</string>
+              </property>
+              <property name="text">
+               <string>Ue_asset</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QCheckBox" name="Clear_shot">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(50, 50, 50);</string>
+            </property>
+            <property name="text">
+             <string>Clear_shot</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="Input_ue">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::RightToLeft</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(50, 50, 50);</string>
+            </property>
+            <property name="text">
+             <string>Assemble</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>Ep_list</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>Seq_Assemble</receiver>
+   <slot>Update_sc_list()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>148</x>
+     <y>371</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Shot_list</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>Seq_Assemble</receiver>
+   <slot>Update_file_list()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>533</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>624</x>
+     <y>388</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Pt_list</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>Seq_Assemble</receiver>
+   <slot>Update_shot_list()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>403</x>
+     <y>498</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>527</x>
+     <y>602</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Sc_list</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>Seq_Assemble</receiver>
+   <slot>Update_pt_list()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>274</x>
+     <y>544</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>626</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Input_ue</sender>
+   <signal>clicked()</signal>
+   <receiver>Seq_Assemble</receiver>
+   <slot>Start_assemble()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>817</x>
+     <y>666</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>798</x>
+     <y>686</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Camera</sender>
+   <signal>clicked()</signal>
+   <receiver>Seq_Assemble</receiver>
+   <slot>Update_type()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>790</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>848</x>
+     <y>27</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Ue_asset</sender>
+   <signal>clicked()</signal>
+   <receiver>Seq_Assemble</receiver>
+   <slot>Update_type()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>782</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>866</x>
+     <y>56</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>signal1()</signal>
+  <slot>Update_sc_list()</slot>
+  <slot>Update_shot_list()</slot>
+  <slot>Update_file_list()</slot>
+  <slot>Open_ue_editor()</slot>
+  <slot>Open_ue_project()</slot>
+  <slot>Update_ep_list()</slot>
+  <slot>Check_ue_asset()</slot>
+  <slot>Update_pt_list()</slot>
+  <slot>Start_assemble()</slot>
+  <slot>Update_type()</slot>
+ </slots>
+</ui>

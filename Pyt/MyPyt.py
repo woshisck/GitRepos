@@ -176,63 +176,16 @@ class MainWindow(QtGui.QWidget, Ui_UE_input_Dialog):
             self.UE4Editor_path_line.setText(set_info["ue_path"])
             self.UE4Project_path_line.setText(set_info["project_file"])
 
-
-# class QtWindow(QtGui.QWidget):
-#     def __init__(self, parent= None):
-#         super(QtWindow, self).__init__()
-#
-#         self.aboutToClose = None  # This is used to stop the tick when the window is closed
-#         self.widget = QtUiTools.QUiLoader().load(UI_Path)
-#         self.setWindowTitle('FbxFactory')
-#         self.widget.setParent(self)
-#         self.setGeometry(100, 100, self.widget.width(), self.widget.height())
-#
-#         self.initializeWidget()
-#
-#     def closeEvent(self, event):
-#         if self.aboutToClose:
-#             self.aboutToClose(self)
-#         event.accept()
-#
-#     def eventTick(self, delta_seconds):
-#         self.myTick(delta_seconds)
-#
-#     def initializeWidget(self):
-#         self.time_while_this_window_is_open = 0.0
-#         self.random_actor = None
-#         self.random_actor_is_going_up = True
-#
-#         self.widget.button_MoveRandom.clicked.conncet(self.moveRandomActorInScene)
-#
-#     def moveRandomActorInScene(self):
-#         import random
-#         import WorldFunctions
-#         all_actors = WorldFunctions.getAllActors(use_selection=False, actor_class=unreal.StaticMeshActor,
-#                                                  actor_tag=None)
-#         rand = random.randrange(0, len(all_actors))
-#         self.random_actor = all_actors[rand]
-
-
-# class QtWindow(QtGui.QWidget):
-#     def __init__(self, parent=None):
-#         super(QtWindow, self).__init__(parent)
-#         self.aboutToClose = None  # This is used to stop the tick when the window is closed
-#         self.widget = QtUiTools.QUiLoader().load(UI_Path)
-#         self.widget.setParent(self)
-#         self.setGeometry(100, 100, self.widget.width(), self.widget.height())
-#
-
-
-def buildImportTask(filename='', destination_path='', options=None):
-    task = unreal.AssetImportTask()
-    task.set_editor_property('automated', True)
-    task.set_editor_property('destination_name', '')
-    task.set_editor_property('destination_path', destination_path)
-    task.set_editor_property('filename', filename)
-    task.set_editor_property('replace_existing', True)
-    task.set_editor_property('save', True)
-    task.set_editor_property('options', options)
-    return task
+    def buildImportTask(filename='', destination_path='', options=None):
+        task = unreal.AssetImportTask()
+        task.set_editor_property('automated', True)
+        task.set_editor_property('destination_name', '')
+        task.set_editor_property('destination_path', destination_path)
+        task.set_editor_property('filename', filename)
+        task.set_editor_property('replace_existing', True)
+        task.set_editor_property('save', True)
+        task.set_editor_property('options', options)
+        return task
 
 
 # tasks: obj List : The import tasks object. You can get them from buildImportTask()

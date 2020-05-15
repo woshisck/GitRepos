@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UE_input_FBX.ui'
 #
-# Created: Fri Apr 24 14:25:52 2020
+# Created: Thu May 14 15:20:48 2020
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_UE_input_Dialog(object):
     def setupUi(self, UE_input_Dialog):
         UE_input_Dialog.setObjectName("UE_input_Dialog")
-        UE_input_Dialog.resize(701, 804)
+        UE_input_Dialog.resize(772, 804)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../Download/tubiao.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         UE_input_Dialog.setWindowIcon(icon)
@@ -33,8 +33,8 @@ class Ui_UE_input_Dialog(object):
         self.UE4Editor_path_line.setMaximumSize(QtCore.QSize(16777215, 30))
         self.UE4Editor_path_line.setSizeIncrement(QtCore.QSize(0, 20))
         self.UE4Editor_path_line.setBaseSize(QtCore.QSize(0, 20))
-        self.UE4Editor_path_line.setStyleSheet("background-color: rgb(25, 25, 25);\n"
-"color: rgb(255, 255, 255);")
+        self.UE4Editor_path_line.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+" selection-background-color: rgb(255, 255, 255)")
         self.UE4Editor_path_line.setObjectName("UE4Editor_path_line")
         self.gridLayout.addWidget(self.UE4Editor_path_line, 0, 0, 1, 1)
         self.Set_ue4 = QtGui.QPushButton(self.UE_input_FBX)
@@ -61,8 +61,8 @@ class Ui_UE_input_Dialog(object):
         self.UE4Project_path_line.setMaximumSize(QtCore.QSize(16777215, 30))
         self.UE4Project_path_line.setSizeIncrement(QtCore.QSize(0, 20))
         self.UE4Project_path_line.setBaseSize(QtCore.QSize(0, 20))
-        self.UE4Project_path_line.setStyleSheet("background-color: rgb(25, 25, 25);\n"
-"color: rgb(255, 255, 255);")
+        self.UE4Project_path_line.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+" selection-background-color: rgb(255, 255, 255)")
         self.UE4Project_path_line.setObjectName("UE4Project_path_line")
         self.gridLayout.addWidget(self.UE4Project_path_line, 1, 0, 1, 1)
         self.Set_project = QtGui.QPushButton(self.UE_input_FBX)

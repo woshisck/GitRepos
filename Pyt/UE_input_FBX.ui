@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>701</width>
+    <width>772</width>
     <height>804</height>
    </rect>
   </property>
@@ -59,8 +59,8 @@
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(25, 25, 25);
-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(255, 255, 255);
+ selection-background-color: rgb(255, 255, 255)</string>
           </property>
          </widget>
         </item>
@@ -133,8 +133,8 @@ background-color: rgb(50, 50, 50);</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(25, 25, 25);
-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(255, 255, 255);
+ selection-background-color: rgb(255, 255, 255)</string>
           </property>
          </widget>
         </item>

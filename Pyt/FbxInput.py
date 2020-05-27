@@ -27,26 +27,71 @@ prefixStaticMesh = "sm"
 prefixTexture2D = "tex"
 prefixTextureCube = "HDRI"
 
-workingPath = "/Game/Sequence"
-
+workingPath = "/Game/"
+RootPath = "/Game/"
+TestPath ="/Game/SkeletalMesh/"
 Ani_cache = "H:/XHQS/Cache/ANI_cache"
 
+def GetProperPrefix(className):
+    _prefix = ""
+    if className == "AnimBlueprint":
+        _prefix = prefixAnimationBlueprint
+    elif className == "AnimSequence":
+        _prefix = prefixAnimationSequence
+    elif className == "Animation":
+        _prefix = prefixAnimation
+    elif className == "BlendSpace1D":
+        _prefix = prefixBlendSpace
+    elif className == "Blueprint":
+        _prefix = prefixBlueprint
+    elif className == "CurveFloat":
+        _prefix = prefixCurveFloat
+    elif className == "CurveLinearColor":
+        _prefix = prefixCurveLinearColor
+    elif className == "Material":
+        _prefix = prefixMaterial
+    elif className == "MaterialFunction":
+        _prefix = prefixMaterialFunction
+    elif className == "MaterialInstance":
+        _prefix = prefixMaterialInstance
+    elif className == "ParticleSystem":
+        _prefix = prefixParticleSystem
+    elif className == "PhysicsAsset":
+        _prefix = prefixPhysicsAsset
+    elif className == "SkeletalMesh":
+        _prefix = prefixSkeletalMesh
+    elif className == "Skeleton":
+        _prefix = prefixSkeleton
+    elif className == "SoundCue":
+        _prefix = prefixSoundCue
+    elif className == "SoundWave":
+        _prefix = prefixSoundWave
+    elif className == "StaticMesh":
+        _prefix = prefixStaticMesh
+    elif className == "Texture2D":
+        _prefix = prefixTexture2D
+    elif className == "TextureCube":
+        _prefix = prefixTextureCube
+    else:
+        _prefix = ""
 
-#
-# @unreal.uclass()
-# class LevelSequenceFactory(unreal.LevelSequence):
-#     pass
-#
-# @unreal.uclass()
-# class EditorUtil(unreal.GlobalEditorUtilityBase):
-#     pass
-#
-#
-# @unreal.uclass()
-# class MaterialEditingLib(unreal.MaterialEditingLibrary):
-#     pass
-#
-#
+    return _prefix
+
+
+@unreal.uclass()
+class LevelSequenceFactory(unreal.LevelSequence):
+    pass
+
+@unreal.uclass()
+class EditorUtil(unreal.GlobalEditorUtilityBase):
+    pass
+
+
+@unreal.uclass()
+class MaterialEditingLib(unreal.MaterialEditingLibrary):
+    pass
+
+
 @unreal.uclass()
 class GetEditorAssetLibrary(unreal.EditorAssetLibrary):
     pass
@@ -56,6 +101,8 @@ class getAssetRegistry(unreal.AssetRegistry):
     pass
 
 
+assetRegistry = getAssetRegistry()
+print assetRegistry.get_assets_by_path( "/Game/A/", False, False)
 #
 # @unreal.uclass()
 # class GetEditorUtility(unreal.GlobalEditorUtilityBase):
@@ -73,16 +120,17 @@ class getAssetRegistry(unreal.AssetRegistry):
 # def createGenericAsset(asset_path='', unique_name=True, asset_class=None, asset_factory=None):
 #     if unique_name:
 #         asset_path, asset_name = unreal.AssetToolsHelpers.get_asset_tools().create_unique_asset_name(base_package_name=asset_path, suffix='')
-#     if not unreal.EditorAssetLibrary.does_asset_exist(asset_path=asset_path):
-#         path = asset_path.rsplit('/', 1)[0]
-#         name = asset_path.rsplit('/', 1)[1]
-#         return unreal.AssetToolsHelpers.get_asset_tools().create_asset(asset_name=name, package_path=path, asset_class=asset_class, factory=asset_factory)
-#     return unreal.load_asset(asset_path)
+# #     if not unreal.EditorAssetLibrary.does_asset_exist(asset_path=asset_path):
+# #         path = asset_path.rsplit('/', 1)[0]
+# #         name = asset_path.rsplit('/', 1)[1]
+# #         return unreal.AssetToolsHelpers.get_asset_tools().create_asset(asset_name=name, package_path=path, asset_class=asset_class, factory=asset_factory)
+# #     return unreal.load_asset(asset_path)
+# #
+# #
+# #
 #
-#
-#
-#
-# def createGenerateAssetExample():
+# #
+# # def createGenerateAssetExample():
 #     base_path = '/Game/GenericAssets'
 #     generate_assets = [
 #         [base_path+'sequence', unreal.LevelSequence, unreal.LevelSequenceFactoryNew()],
@@ -111,70 +159,88 @@ class getAssetRegistry(unreal.AssetRegistry):
 #         _prefix = ""
 #     return _prefix
 
-AssetRegister = getAssetRegistry()
 
-editorAssetLib = GetEditorAssetLibrary()
-allAssets = editorAssetLib.list_assets(workingPath, True, False)
-allAssetsCount = len(allAssets)
+'''
+check all the asset (EditorAssetLibrary)
+'''
+@unreal.uclass()
+class pathFactory(unreal.Paths):
+    pass
 
+def pathFind():
+    filePath = pathFactory.get_project_file_path()
+    relativePath = pathFactory.convert_relative_path_to_full(filePath)
+    return relativePath
 
-def functionX():
+print (pathFind())
+# AssetRegister = getAssetRegistry()
+#
+# editorAssetLib = GetEditorAssetLibrary()
+# allAssets = editorAssetLib.list_assets(workingPath, True, False)
+# allAssetsCount = len(allAssets)
+#
+#
+# selectedAssetPath = workingPath
+#
+# with unreal.ScopedSlowTask(allAssetsCount, selectedAssetPath) as slowTask:
+#     slowTask.make_dialog(True)
+#     for asset in allAssets:
+#         _assetData = editorAssetLib.find_asset_data(asset)
+#         _assetName = _assetData.get_asset().get_name()
+#         _assetPathName = _assetData.get_asset().get_path_name()
+#         _assetClassName = _assetData.get_asset().get_class().get_name()
+#
+#
+#         '''
+#         Check if the asset is Skeletal mesh and duplicated it to certain root
+#         '''
+#         if _assetClassName == "SkeletalMesh":
+#             editorAssetLib.duplicate_asset(_assetPathName, TestPath+_assetName)
+#
+#         _assetPathOnly = _assetPathName.replace((_assetName + "." + _assetName), "")
+#         print ("Name: "+_assetPathOnly+" class name: "+_assetClassName+'\n')
+#
+#
+#         if slowTask.should_cancel():
+#             break
+#         slowTask.enter_progress_frame(1,asset)
 
-
-def import_cameraShot(file_path, sequence_path):
-    '''
-    code from the enhance importing camera
-    :return: none
-    '''
-
-
-    '''
-    set word and cineCamera spawn in level
-    '''
-    world = unreal.EditorLevelLibrary.get_editor_world()
-    targetsequence = unreal.load_asset(sequence_path, unreal.LevelSequence)
-    cine_camera = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.CineCameraActor, unreal.Vector())
-    cine_camera.set_actor_label("file_path")
-    camera_binding = targetsequence.add_possessable(cine_camera)
-    '''
-    import option
-    '''
-    import_options = unreal.MovieSceneUserImportFBXSettings()
-    import_options.set_editor_property('create_cameras', False)
-    import_options.set_editor_property('force_front_x_axis', False)
-    import_options.set_editor_property('match_by_name_only', False)
-    import_options.set_editor_property('reduce_keys', True)
-    import_options.set_editor_property('reduce_keys_tolerance', 0.001)
-
-    bindings = targetsequence.get_bindings()
-    unreal.SequencerTools.import_fbx(world, targetsequence, camera_bindings(), import_camera_FBX(), input_file)
-
-
-
-input_file = "E:\\MyCamShot.fbx"
-world = unreal.EditorLevelLibrary.get_editor_world()
-targetsequence = unreal.load_asset('/Game/Sq', unreal.LevelSequence)
-cine_camera = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.CineCameraActor, unreal.Vector())
-cine_camera.set_actor_label('MyCamShot')
-binding = targetsequence.add_possessable(cine_camera)
-
-
-def import_camera_FBX():
-    import_options = unreal.MovieSceneUserImportFBXSettings()
-    import_options.set_editor_property('create_cameras', False)
-    import_options.set_editor_property('force_front_x_axis', False)
-    import_options.set_editor_property('match_by_name_only', False)
-    import_options.set_editor_property('reduce_keys', True)
-    import_options.set_editor_property('reduce_keys_tolerance', 0.001)
-    return import_options
-
-def camera_bindings():
-    bindings = targetsequence.get_bindings()
-    return bindings
+        #need prefix name
+        # _assetPrefix = GetProperPrefix(_assetClassName)
 
 
+##########################################################################################################################
+# '''
+# hard code of making sequence & import camera fbx
+# '''
+# input_file = "E:\\MyCamShot.fbx"
 # world = unreal.EditorLevelLibrary.get_editor_world()
-unreal.SequencerTools.import_fbx(world, targetsequence, camera_bindings(), import_camera_FBX(), input_file)
+# targetsequence = unreal.load_asset('/Game/Sq', unreal.LevelSequence)
+# cine_camera = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.CineCameraActor, unreal.Vector())
+# cine_camera.set_actor_label('MyCamShot')
+# binding = targetsequence.add_possessable(cine_camera)
+#
+#
+# def import_camera_FBX():
+#     import_options = unreal.MovieSceneUserImportFBXSettings()
+#     import_options.set_editor_property('create_cameras', True)
+#     import_options.set_editor_property('force_front_x_axis', False)
+#     import_options.set_editor_property('match_by_name_only', False)
+#     import_options.set_editor_property('reduce_keys', True)
+#     import_options.set_editor_property('reduce_keys_tolerance', 0.001)
+#     return import_options
+#
+# def camera_bindings():
+#     bindings = targetsequence.get_bindings()
+#     return bindings
+#
+# unreal.SequencerTools.import_fbx(world, targetsequence, camera_bindings(), import_camera_FBX(), input_file)
+
+##########################################################################################################################
+
+
+
+
 
 # world = unreal.EditorLevelLibrary.get_editor_world()
 #
@@ -210,9 +276,7 @@ unreal.SequencerTools.import_fbx(world, targetsequence, camera_bindings(), impor
 # binding = targetsequence.add_possessable(cine_camera)
 # targetsequence.add_possessable(cine_camera.get_cine_camera_component())
 
-'''
-set the camera cut track 
-'''
+
 # camera_id = unreal.MovieSceneObjectBindingID()
 # camera_id.set_editor_property('guid', binding.get_id())
 # camera_cut_track = targetsequence.add_master_track(unreal.MovieSceneCameraCutTrack)
@@ -231,10 +295,6 @@ set the camera cut track
 # unreal.SequencerTools.import_fbx(world, targetsequence, [binding], import_setting, "H:/XHQS/Cache/ANI_cache/EP001/SC001/SC001_P001/SC001_P001_0001/EP001_SC001_P001_0001_Camera_35_101_381.fbx")
 
 
-# for i in allAssets:
-#     print i
-
-# print allAssetsCount
 
 # editorUtil = EditorUtil()
 # materialEditingLib = MaterialEditingLib()
@@ -251,47 +311,6 @@ set the camera cut track
 #     print sourceAssetPath
 
 
-# def work_for_all(func):
-#     def inner_func(*args, **kwargs):
-#         print("I cam work for all function?")
-#         return func(*args, **kwargs)
-#     return inner_func
-#
-# def T_Param(func):
-#     def inner_func(A,B):
-#         if (A <=0):
-#             print ("A is lower than zero")
-#         return func(A,B)
-#     return inner_func
-#
-# def T_Param_(func):
-#     def inner_func(A,B):
-#         if(B==5):
-#             print ("B is 5")
-#         return func(A,B)
-#     return inner_func
-#
-#
-#
-# @T_Param
-# @T_Param_
-# def DIVID(A,B):
-#     return A/B
-#
-# @work_for_all
-# def divide(a,b):
-#     return a+b
-#
-# print divide(3,4)
-#
-# def fun_func(*args):
-#     return args
-#
-#
-#
-#
-# print( DIVID(0,5))
-#
 
 # level_sequence = unreal.LevelSequence.cast(unreal.AssetToolsHelpers.get_asset_tools().create_asset(
 #     asset_name='my_level_sequence_name',

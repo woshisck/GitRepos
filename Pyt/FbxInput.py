@@ -172,8 +172,10 @@ def pathFind():
     relativePath = pathFactory.convert_relative_path_to_full(filePath)
     return relativePath
 
-print (pathFind())
-# AssetRegister = getAssetRegistry()
+# print (pathFind())
+
+
+
 #
 # editorAssetLib = GetEditorAssetLibrary()
 # allAssets = editorAssetLib.list_assets(workingPath, True, False)

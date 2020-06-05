@@ -25,6 +25,11 @@ UI_Path = rootpath + '\QtWindowOne.ui'
 class LevelSequenceFactory(unreal.LevelSequence):
     pass
 
+
+@unreal.uclass()
+class EditorUtilityLib(unreal.EditorUtilityLibrary):
+    pass
+
 @unreal.uclass()
 class EditorUtil(unreal.GlobalEditorUtilityBase):
     pass

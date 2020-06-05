@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59e8fae0-afb2-4a6c-85fd-347017d8d7d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ShotPath.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GenericAsset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkeletalMeshEditor/SkeletalMeshEditor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SkeletalMeshEditor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Temp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FbxInput.py" beforeDir="false" afterPath="$PROJECT_DIR$/FbxInput.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyPyt.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyPyt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTestFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestFile.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,10 +39,13 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/UE4Script/branches/Assetmble/script" />
     <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GitRepos\Pyt\SkeletalMeshEditor" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\GitRepos\Pyt" />
     </key>
